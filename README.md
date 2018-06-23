@@ -1,8 +1,8 @@
-# ASCII-Art-Generator
+# Animated-Star-Rating
 
-[![Version](https://img.shields.io/badge/Version-0.0.1-brightgreen.svg)](https://github.com/zelin/ASCII-Art-Generator)
-[![Platform](https://img.shields.io/badge/Platform-Android-orange.svg)](https://github.com/zelin/ASCII-Art-Generator)
-[![License](https://img.shields.io/badge/License-MIT-black.svg)](https://github.com/zelin/ASCII-Art-Generator)
+[![Version](https://img.shields.io/badge/Version-0.0.1-brightgreen.svg)](https://github.com/zelin/Animated-Star-Rating)
+[![Platform](https://img.shields.io/badge/Platform-Android-orange.svg)](https://github.com/zelin/Animated-Star-Rating)
+[![License](https://img.shields.io/badge/License-MIT-black.svg)](https://github.com/zelin/Animated-Star-Rating)
 [![Donate Bitcoin](https://img.shields.io/badge/Donate-Bitcoin-green.svg)](http://neberox.tk/donate/?amount=2&currency=USD)
 
 ![Screenshot 1](./Screenshots/image_1.jpg)
@@ -14,113 +14,55 @@ The easiest way to add the library to your project is by adding it as a dependen
 
 ```ruby
 dependencies {
-   implementation 'com.neberox.library:asciicreator:0.0.1'
+   implementation 'com.neberox.library:animatedstar:0.0.1'
 }
 ```
 
 ## Usage
 
-### Using ASCIIConverter class
+### Using XML
 
-Create a ASCIIConverter object
+ ```
+  <com.neberox.library.animatedstar.StarRatingBar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        app:textPadding="0.5"
+        />
 
-```java
-ASCIIConverter converter = new ASCIIConverter();
 ```
 
-Create ASCII from bitmap
+### Create StarRatingBar programmatically
 
 ```java
-Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_image);
-imgView.setImageBitmap(converter.createASCIIImage(bitmap));
+        
+StarRatingBar bar = new StarRatingBar(this);
+mainLayout.addView(bar, params);
+
+bar.setAnimDuration(200);
+bar.setFillColor(Color.WHITE);
+bar.setRating(3);
+bar.setSelectedColor(Color.parseColor("#FF00000"));
+bar.setStrokeColor(Color.TRANSPARENT);
+bar.setStrokeWidth(1);
+        
+bar.regenerateStar();
+
 ```
 
-Convert in the background async task providing a completion block. 
-Completion block will be called on the main thread.
+## Attributes
 
-```java
-converter.createASCIIImage(bitmap, new OnBitmapTaskListener()
-{
-    @Override
-    public void onTaskCompleted(Bitmap data)
-    {
-        imgView.setImageBitmap(data);
-    }
-});
-```
-
-Convert to String
-```java
-Log.d("ASCII-GENERATOR", converter.createASCIIString(bitmap));
-```
-
-Convert in the background async task providing a completion block. 
-Completion block will be called on the main thread.
-
-```java
-converter.createASCIIString(bitmap, new OnStringTaskListener()
-{
-    @Override
-    public void onTaskCompleted(String data)
-    {
-        Log.d("ASCII-GENERATOR", data);
-    }
-});
-```
-
-#### Options available
-
-```java
-converter.setFontSize(18);
-converter.setReversedLuminance(false);
-converter.setGrayScale(false);
-converter.setBackgroundColor(Color.RED);
-```
-
-## More Options
-
-By default luminance values are mapped to strings using 
-
-```java
-Map<String, Float> map = new HashMap<String, Float>();
-map.put(" ", 1.0f);
-map.put("`", 0.95f);
-map.put(".", 0.92f);
-map.put(",", 0.9f);
-map.put("-", 0.8f);
-map.put("~", 0.75f);
-map.put("+", 0.7f);
-map.put("<", 0.65f);
-map.put(">", 0.6f);
-map.put("o", 0.55f);
-map.put("=", 0.5f);
-map.put("*", 0.35f);
-map.put("%", 0.3f);
-map.put("X", 0.1f);
-map.put("@", 0.0f);
-```
-
-You can instantiate a converter with your own map
-
-```java
-Map<String, Float> map = new HashMap<String, Float>();
-map.put(" ", 1.0f);
-map.put("`", 0.95f);
-map.put(",", 0.9f);
-map.put("-", 0.8f);
-map.put("+", 0.7f);
-map.put("<", 0.65f);
-map.put("o", 0.55f);
-map.put("=", 0.5f);
-map.put("%", 0.3f);
-map.put("@", 0.0f);
-
-converter = new ASCIIConverter(Activity.this, map)
-```
-
-## Potential Improvements
-* Creating an ASCIIImageView to automatically generate ASCII from bitmap
-* Implementing more options for creating ASCII
+| Name | Description |
+| ------ | ------ |
+| strokeColor(optional) | Stroke outside each corner. Available only for non rated points |
+| strokeWidth(optional) | Size of the outer stroke |
+| fillColor(optional) | Color of un rated points of star |
+| selectedColor | Color of the rated points of star  |
+| textColor(optional) | Color of the text written on each point of star indicating rating |
+| textPadding(optional) | Determines where the text will be drawn either close to corner (1) or close to middle (0). Range 0->1  |
+| textSize(optional) | Text font size |
+| selectedTextColor(optional) | Color of text drawn over the rated points of star |
 
 ## Author
 
@@ -128,4 +70,4 @@ Muhammad Umar, https://github.com/zelin
 
 ## License
 
-ASCII-Art-Generator is available under the MIT license. See the LICENSE file for more info.
+Animated-Star-Rating is available under the MIT license. See the LICENSE file for more info.
