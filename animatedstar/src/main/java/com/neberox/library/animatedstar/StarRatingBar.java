@@ -37,7 +37,6 @@ import android.os.Handler;
 import android.support.annotation.FloatRange;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
@@ -105,6 +104,17 @@ public class StarRatingBar extends RelativeLayout
     public StarRatingBar(Context context)
     {
         super(context);
+        setWillNotDraw(false);
+        initAttributes(context, null, 0);
+        // We can not generate a bitmap with 0 width and height.
+        this.post(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                addViews();
+            }
+        });
     }
 
     /**
@@ -262,8 +272,6 @@ public class StarRatingBar extends RelativeLayout
 
     private void initAttributes(Context context, AttributeSet attrs, int defStyleAttr)
     {
-        DisplayMetrics dm = getResources().getDisplayMetrics();
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.StarRatingBar);
 
         mFillColor      = a.getColor(R.styleable.StarRatingBar_fillColor, mFillColor);

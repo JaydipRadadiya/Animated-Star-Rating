@@ -35,34 +35,47 @@ dependencies {
 
 ### Create StarRatingBar programmatically
 
-```java
-        
+```java  
+RelativeLayout mainLayout = findViewById(R.id.mainView);
+
+RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(400, 400);
+params.addRule(CENTER_IN_PARENT);
 StarRatingBar bar = new StarRatingBar(this);
 mainLayout.addView(bar, params);
 
-bar.setAnimDuration(200);
-bar.setFillColor(Color.WHITE);
-bar.setRating(3);
-bar.setSelectedColor(Color.parseColor("#FF00000"));
-bar.setStrokeColor(Color.TRANSPARENT);
-bar.setStrokeWidth(1);
-        
-bar.regenerateStar();
+bar.setAnimDuration(200); //(Optional)
+bar.setFillColor(Color.WHITE); //(Optional)
+bar.setSelectedColor(Color.parseColor("#f2b01e")); //(Optional)
+bar.setStrokeColor(Color.LTGRAY); //(Optional)
+bar.setStrokeWidth(1); //(Optional)
+bar.setTextPadding(0.5f); //(Optional)
+bar.setTextColor(Color.LTGRAY); //(Optional)
+bar.setSelectedTextColor(Color.WHITE); //(Optional)
+bar.setTextSize(18); //(Optional)
 
+bar.regenerateStar();  //(Compulsory)
+```
+### Set ratings programmatically
+
+```java
+bar.setRating(3);
 ```
 
 ## Attributes
 
-| Name | Description |
-| ------ | ------ |
-| strokeColor(optional) | Stroke outside each corner. Available only for non rated points |
-| strokeWidth(optional) | Size of the outer stroke |
-| fillColor(optional) | Color of un rated points of star |
-| selectedColor | Color of the rated points of star  |
-| textColor(optional) | Color of the text written on each point of star indicating rating |
-| textPadding(optional) | Determines where the text will be drawn either close to corner (1) or close to middle (0). Range 0->1  |
-| textSize(optional) | Text font size |
-| selectedTextColor(optional) | Color of text drawn over the rated points of star |
+| Name | Description | Default
+| ------ | ------ | ------ |
+| strokeColor(optional) | Stroke outside each corner. Available only for non rated points | LTGRAY |
+| strokeWidth(optional) | Size of the outer stroke | 1dp |
+| fillColor(optional) | Color of un rated points of star | WHITE |
+| selectedColor | Color of the rated points of star  | #f2b01e |
+| textColor(optional) | Color of the text written on each point of star indicating rating | LTGRAY |
+| textPadding(optional) | Determines where the text will be drawn either close to corner (1) or close to middle (0). Range 0->1  | 0.5 |
+| textSize(optional) | Text font size | 18sp |
+| selectedTextColor(optional) | Color of text drawn over the rated points of star | WHITE |
+
+## Potential Improvements
+* Creating a float value for rating
 
 ## Author
 
