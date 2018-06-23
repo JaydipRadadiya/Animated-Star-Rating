@@ -1,5 +1,6 @@
 package com.neberox.app.animatedstar;
 
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,8 +21,9 @@ public class MainActivity extends AppCompatActivity
 
         RelativeLayout mainLayout = findViewById(R.id.mainView);
 
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(400, 400);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(dpToPx(200), dpToPx(200));
         params.addRule(CENTER_IN_PARENT);
+
         StarRatingBar bar = new StarRatingBar(this);
         mainLayout.addView(bar, params);
 
@@ -36,5 +38,10 @@ public class MainActivity extends AppCompatActivity
         bar.setTextSize(18); //(Optional)
 
         bar.regenerateStar();  //(Compulsory)
+    }
+
+    private int dpToPx(int dp)
+    {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }
 }

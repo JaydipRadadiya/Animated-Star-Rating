@@ -5,8 +5,7 @@
 [![License](https://img.shields.io/badge/License-MIT-black.svg)](https://github.com/zelin/Animated-Star-Rating)
 [![Donate Bitcoin](https://img.shields.io/badge/Donate-Bitcoin-green.svg)](http://neberox.tk/donate/?amount=2&currency=USD)
 
-![Screenshot 1](./Screenshots/image_1.jpg)
-![Screenshot 2](./Screenshots/image_2.jpg)
+![Screenshot 1](./Screenshots/image.gif)
 
 ## Installation
 

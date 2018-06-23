@@ -9,6 +9,7 @@
     tools:context="com.neberox.app.animatedstar.MainActivity">
 
     <com.neberox.library.animatedstar.StarRatingBar
+        android:visibility="gone"
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:textPadding="0.5"
