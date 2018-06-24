@@ -75,7 +75,7 @@ public class StarRatingBar extends RelativeLayout
     /* The text size set in sp. Default is 18sp */
     private int mTextSize     = 18;
     /* Padding used to move Text around the lobe. Ranging from 0 to 1 */
-    private float mTextPadding  = 0.3f;
+    private float mTextPadding  = 0.5f;
     /* Initial text color to be drawn over the initial lobes. Default is gray */
     private int mTextColor          = Color.LTGRAY;
     /* Final text color to be drawn over the rated lobes. Default is white */
