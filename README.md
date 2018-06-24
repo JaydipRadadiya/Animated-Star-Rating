@@ -1,6 +1,6 @@
 # Animated-Star-Rating
 
-[![Version](https://img.shields.io/badge/Version-0.0.1-brightgreen.svg)](https://github.com/zelin/Animated-Star-Rating)
+[![Version](https://img.shields.io/badge/Version-0.0.2-brightgreen.svg)](https://github.com/zelin/Animated-Star-Rating)
 [![Platform](https://img.shields.io/badge/Platform-Android-orange.svg)](https://github.com/zelin/Animated-Star-Rating)
 [![License](https://img.shields.io/badge/License-MIT-black.svg)](https://github.com/zelin/Animated-Star-Rating)
 [![Donate Bitcoin](https://img.shields.io/badge/Donate-Bitcoin-green.svg)](http://neberox.tk/donate/?amount=2&currency=USD)
@@ -13,7 +13,7 @@ The easiest way to add the library to your project is by adding it as a dependen
 
 ```ruby
 dependencies {
-   implementation 'com.neberox.library:animatedstar:0.0.1'
+   implementation 'com.neberox.library:animatedstar:0.0.2'
 }
 ```
 
