@@ -36,7 +36,7 @@ ext {
     siteUrl = 'https://github.com/zelin/Animated-Star-Rating'
     gitUrl  = 'https://github.com/zelin/Animated-Star-Rating'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '0.0.2'
 
     developerId    = 'zelin'
     developerName  = 'Muhammad Umar'
